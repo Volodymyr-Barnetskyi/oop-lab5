@@ -133,7 +133,7 @@ namespace ConsoleApp2
         {
             static Airplane[] ReadAirplaneArray()
             {
-                Console.WriteLine("Кiлькiсть рейсiв: ");
+                Console.WriteLine("Kilkist reisiv: ");
                 int n = Convert.ToInt32(Console.ReadLine());
                 Airplane[] airplane = new Airplane[n];
 
@@ -143,20 +143,20 @@ namespace ConsoleApp2
 
                 for (int i = 0; i < n; i++)
                 {
-                    Console.WriteLine($"Рейс № {i + 1}");
-                    Console.WriteLine("Мiсто вiдправлення: ");
+                    Console.WriteLine($"Reis № {i + 1}");
+                    Console.WriteLine("City start: ");
                     startCity = Console.ReadLine();
-                    Console.WriteLine("Мiсто прибуття: ");
+                    Console.WriteLine("City end: ");
                     finishCity = Console.ReadLine();
 
-                    Console.WriteLine("Рiк, мiсяць, день, година, хвилина вiдправлення");
+                    Console.WriteLine("Year, month, day, hour, minute start");
                     year_1 = Convert.ToInt32(Console.ReadLine());
                     month_1 = Convert.ToInt32(Console.ReadLine());
                     day_1 = Convert.ToInt32(Console.ReadLine());
                     hours_1 = Convert.ToInt32(Console.ReadLine());
                     minutes_1 = Convert.ToInt32(Console.ReadLine());
 
-                    Console.WriteLine("Рiк, мiсяць, день, година, хвилина прибуття");
+                    Console.WriteLine("Year, month, day, hour, minute end");
                     year_2 = Convert.ToInt32(Console.ReadLine());
                     month_2 = Convert.ToInt32(Console.ReadLine());
                     day_2 = Convert.ToInt32(Console.ReadLine());
@@ -172,31 +172,31 @@ namespace ConsoleApp2
             }
             static void PrintAirplane(Airplane airplane)
             {
-                Console.WriteLine($"Мiсто вiдправлення: {airplane.StartCity}");
-                Console.WriteLine($"Мiсто прибуття: {airplane.FinishCity}");
-                Console.Write("Рiк, мiсяць, день, година, хвилина вiдправлення: ");
+                Console.WriteLine($"City start: {airplane.StartCity}");
+                Console.WriteLine($"City end: {airplane.FinishCity}");
+                Console.Write("Year, month, day, hour, minute start: ");
                 Console.Write($"{airplane.StartDate.Year}/{airplane.StartDate.Month}/{airplane.StartDate.Day} ");
                 Console.Write($"{airplane.StartDate.Hours}:{airplane.StartDate.Minutes}\n");
-                Console.Write("Рiк, мiсяць, день, година, хвилина прибуття: ");
+                Console.Write("Year, month, day, hour, minute end: ");
                 Console.Write($"{airplane.FinishDate.Year}/{airplane.FinishDate.Month}/{airplane.FinishDate.Day} ");
                 Console.Write($"{airplane.FinishDate.Hours}:{airplane.FinishDate.Minutes}\n");
-                Console.WriteLine($"Час польоту: {airplane.GetTotalTime()}хв");
-                Console.WriteLine($"Чи прибуває в той же день: {airplane.IsArrivingToday()}");
+                Console.WriteLine($"Time polit: {airplane.GetTotalTime()}хв");
+                Console.WriteLine($"IsArrivingToday: {airplane.IsArrivingToday()}");
             }
             static void PrintAirplanes(Airplane[] plane)
             {
                 foreach (Airplane airplane in plane)
                 {
-                    Console.WriteLine($"\nМiсто вiдправлення: {airplane.StartCity}");
-                    Console.WriteLine($"Мiсто прибуття: {airplane.FinishCity}");
-                    Console.Write("Рiк, мiсяць, день, година, хвилина вiдправлення: ");
+                    Console.WriteLine($"\nCity start: {airplane.StartCity}");
+                    Console.WriteLine($"City end: {airplane.FinishCity}");
+                    Console.Write("Year, month, day, hour, minute start: ");
                     Console.Write($"{airplane.StartDate.Year}/{airplane.StartDate.Month}/{airplane.StartDate.Day} ");
                     Console.Write($"{airplane.StartDate.Hours}:{airplane.StartDate.Minutes}\n");
-                    Console.Write("Рiк, мiсяць, день, година, хвилина прибуття: ");
+                    Console.Write("Year, month, day, hour, minute end: ");
                     Console.Write($"{airplane.FinishDate.Year}/{airplane.FinishDate.Month}/{airplane.FinishDate.Day} ");
                     Console.Write($"{airplane.FinishDate.Hours}:{airplane.FinishDate.Minutes}\n");
-                    Console.WriteLine($"Час польоту: {airplane.GetTotalTime()}хв");
-                    Console.WriteLine($"Чи прибуває в той же день: {airplane.IsArrivingToday()}");
+                    Console.WriteLine($"Time polioty: {airplane.GetTotalTime()}хв");
+                    Console.WriteLine($"IsArrivingToday: {airplane.IsArrivingToday()}");
                 }
             }
 
@@ -241,19 +241,19 @@ namespace ConsoleApp2
                 while (!stop)
                 {
                     Console.WriteLine();
-                    Console.WriteLine("1. Вивести iнформацiю про один рейс.");
-                    Console.WriteLine("2. Вивести iнформацiю про всi рейси.");
-                    Console.WriteLine("3. Вивести найкоротший та найдовший час польоту.");
-                    Console.WriteLine("4. Посортувати рейси за датою.");
-                    Console.WriteLine("5. Посортувати рейси за часом польоту.");
-                    Console.WriteLine("6. Вихiд.");
+                    Console.WriteLine("1. Print info of one reis.");
+                    Console.WriteLine("2. Print info of all reises.");
+                    Console.WriteLine("3. Print short and the long time polioty.");
+                    Console.WriteLine("4. Sort reis data.");
+                    Console.WriteLine("5. Sort reis time.");
+                    Console.WriteLine("6. Exit.");
 
                     n = Convert.ToInt32(Console.ReadLine());
                     Console.WriteLine();
                     switch (n)
                     {
                         case 1:
-                            Console.WriteLine($"Введiть порядковий номер рейсу: 0-{airplane.Length - 1} : ");
+                            Console.WriteLine($"Enter number polioty: 0-{airplane.Length - 1} : ");
                             s = Convert.ToInt32(Console.ReadLine());
                             PrintAirplane(airplane[s]);
                             break;
@@ -262,8 +262,8 @@ namespace ConsoleApp2
                             break;
                         case 3:
                             GetAirplaneInfo(airplane, out MaxReis, out MinReis);
-                            Console.WriteLine($"Мiнiмальний час польоту: {MinReis}хв");
-                            Console.WriteLine($"Максимальний час польоту: {MaxReis}хв");
+                            Console.WriteLine($"Min time polioty: {MinReis}min");
+                            Console.WriteLine($"Max time polioty: {MaxReis}min");
                             break;
                         case 4:
                             SortAirplanesByDate(airplane);
@@ -275,7 +275,7 @@ namespace ConsoleApp2
                             stop = true;
                             break;
                         default:
-                            Console.WriteLine("Такого варiанту не iснує!");
+                            Console.WriteLine("NAN");
                             break;
                     }
                     Console.WriteLine();
